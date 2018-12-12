@@ -1,38 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" total="41" passed="41">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="240" started-at="2018-12-12T13:22:21Z" finished-at="2018-12-12T13:22:21Z">
+  <suite name="Surefire suite" duration-ms="383" started-at="2018-12-12T20:53:37Z" finished-at="2018-12-12T20:53:38Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="240" started-at="2018-12-12T13:22:21Z" finished-at="2018-12-12T13:22:21Z">
+    <test name="Surefire test" duration-ms="383" started-at="2018-12-12T20:53:37Z" finished-at="2018-12-12T20:53:38Z">
       <class name="com.calculator.test_classes.ModelBasicOperationsTest">
-        <test-method status="PASS" signature="testAdditionPositiveValues()[pri:0, instance:testAdditionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testAdditionPositiveValues" duration-ms="75" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+        <test-method status="PASS" signature="testAdditionNegativeValues()[pri:0, instance:testAdditionNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testAdditionNegativeValues" duration-ms="40" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdditionNegativeValues -->
+        <test-method status="PASS" signature="testMultiplicationWithZeroAndNegativeValue()[pri:0, instance:testMultiplicationWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testMultiplicationWithZeroAndNegativeValue" duration-ms="24" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplicationWithZeroAndNegativeValue -->
+        <test-method status="PASS" signature="testAdditionPositiveValues()[pri:0, instance:testAdditionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testAdditionPositiveValues" duration-ms="16" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAdditionPositiveValues -->
-        <test-method status="PASS" signature="testMultiplication()[pri:0, instance:testMultiplication(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testMultiplication" duration-ms="0" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+        <test-method status="PASS" signature="testSubstractionWithZeroAndNegativeValue()[pri:0, instance:testSubstractionWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testSubstractionWithZeroAndNegativeValue" duration-ms="20" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMultiplication -->
-        <test-method status="PASS" signature="testSubstraction()[pri:0, instance:testSubstraction(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testSubstraction" duration-ms="47" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+        </test-method> <!-- testSubstractionWithZeroAndNegativeValue -->
+        <test-method status="PASS" signature="testAdditionWithZeroOnly()[pri:0, instance:testAdditionWithZeroOnly(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testAdditionWithZeroOnly" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testSubstraction -->
-        <test-method status="PASS" signature="testDivision()[pri:0, instance:testDivision(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testDivision" duration-ms="15" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+        </test-method> <!-- testAdditionWithZeroOnly -->
+        <test-method status="PASS" signature="testSubstractionWithZeroOnly()[pri:0, instance:testSubstractionWithZeroOnly(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testSubstractionWithZeroOnly" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testDivision -->
+        </test-method> <!-- testSubstractionWithZeroOnly -->
+        <test-method status="PASS" signature="testDivisionNegativeValues()[pri:0, instance:testDivisionNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testDivisionNegativeValues" duration-ms="10" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDivisionNegativeValues -->
+        <test-method status="PASS" signature="testDivisionPositiveValues()[pri:0, instance:testDivisionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testDivisionPositiveValues" duration-ms="15" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDivisionPositiveValues -->
+        <test-method status="PASS" signature="testAdditionWithZeroAndPositiveValue()[pri:0, instance:testAdditionWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testAdditionWithZeroAndPositiveValue" duration-ms="23" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdditionWithZeroAndPositiveValue -->
+        <test-method status="PASS" signature="testDivisionWithZeroAndPositiveValue()[pri:0, instance:testDivisionWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testDivisionWithZeroAndPositiveValue" duration-ms="11" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDivisionWithZeroAndPositiveValue -->
+        <test-method status="PASS" signature="testMultiplicationWithZeroOnly()[pri:0, instance:testMultiplicationWithZeroOnly(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testMultiplicationWithZeroOnly" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplicationWithZeroOnly -->
+        <test-method status="PASS" signature="testSubstractionNegativeValues()[pri:0, instance:testSubstractionNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testSubstractionNegativeValues" duration-ms="10" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubstractionNegativeValues -->
+        <test-method status="PASS" signature="testAdditionWithZeroAndNegativeValue()[pri:0, instance:testAdditionWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testAdditionWithZeroAndNegativeValue" duration-ms="6" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdditionWithZeroAndNegativeValue -->
+        <test-method status="PASS" signature="testSubstractioWithZeroAndPositiveValue()[pri:0, instance:testSubstractioWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testSubstractioWithZeroAndPositiveValue" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubstractioWithZeroAndPositiveValue -->
+        <test-method status="PASS" signature="testSubstractionPositiveValues()[pri:0, instance:testSubstractionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testSubstractionPositiveValues" duration-ms="4" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubstractionPositiveValues -->
+        <test-method status="PASS" signature="testMultiplicationNegativeValues()[pri:0, instance:testMultiplicationNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testMultiplicationNegativeValues" duration-ms="4" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplicationNegativeValues -->
+        <test-method status="PASS" signature="testMultiplicationWithZeroAndPositiveValue()[pri:0, instance:testMultiplicationWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testMultiplicationWithZeroAndPositiveValue" duration-ms="10" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplicationWithZeroAndPositiveValue -->
+        <test-method status="PASS" signature="testDivisionWithZeroAndNegativeValue()[pri:0, instance:testDivisionWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testDivisionWithZeroAndNegativeValue" duration-ms="10" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDivisionWithZeroAndNegativeValue -->
+        <test-method status="PASS" signature="testMultiplicationPositiveValues()[pri:0, instance:testMultiplicationPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testMultiplicationPositiveValues" duration-ms="6" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplicationPositiveValues -->
       </class> <!-- com.calculator.test_classes.ModelBasicOperationsTest -->
       <class name="com.calculator.test_classes.ModelAdvancedOperationsTest">
-        <test-method status="PASS" signature="testPi()[pri:0, instance:testPi(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testPi" duration-ms="12" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+        <test-method status="PASS" signature="testTanZero()[pri:0, instance:testTanZero(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testTanZero" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTanZero -->
+        <test-method status="PASS" signature="testpowerOfTwoPositive()[pri:0, instance:testpowerOfTwoPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfTwoPositive" duration-ms="6" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testpowerOfTwoPositive -->
+        <test-method status="PASS" signature="testpowerOfThreeZero()[pri:0, instance:testpowerOfThreeZero(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfThreeZero" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testpowerOfThreeZero -->
+        <test-method status="PASS" signature="testpowerOfTwoZero()[pri:0, instance:testpowerOfTwoZero(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfTwoZero" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testpowerOfTwoZero -->
+        <test-method status="PASS" signature="testpowerOfTwoNegative()[pri:0, instance:testpowerOfTwoNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfTwoNegative" duration-ms="4" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testpowerOfTwoNegative -->
+        <test-method status="PASS" signature="testSquareRootZero()[pri:0, instance:testSquareRootZero(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testSquareRootZero" duration-ms="0" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSquareRootZero -->
+        <test-method status="PASS" signature="testSquareRootPositive()[pri:0, instance:testSquareRootPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testSquareRootPositive" duration-ms="10" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSquareRootPositive -->
+        <test-method status="PASS" signature="testSquareRootNegative()[pri:0, instance:testSquareRootNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testSquareRootNegative" duration-ms="6" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSquareRootNegative -->
+        <test-method status="PASS" signature="testTanPositive()[pri:0, instance:testTanPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testTanPositive" duration-ms="4" started-at="2018-12-12T21:53:37Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testTanPositive -->
+        <test-method status="PASS" signature="testPi()[pri:0, instance:testPi(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testPi" duration-ms="0" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testPi -->
-        <test-method status="PASS" signature="testpowerOfTwo()[pri:0, instance:testpowerOfTwo(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfTwo" duration-ms="21" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+        <test-method status="PASS" signature="testTanNegative()[pri:0, instance:testTanNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testTanNegative" duration-ms="6" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testpowerOfTwo -->
+        </test-method> <!-- testTanNegative -->
+        <test-method status="PASS" signature="testSinPositive()[pri:0, instance:testSinPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testSinPositive" duration-ms="3" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSinPositive -->
+        <test-method status="PASS" signature="testSinNegative()[pri:0, instance:testSinNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testSinNegative" duration-ms="7" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSinNegative -->
+        <test-method status="PASS" signature="testCosZero()[pri:0, instance:testCosZero(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testCosZero" duration-ms="0" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCosZero -->
+        <test-method status="PASS" signature="testCosPositive()[pri:0, instance:testCosPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testCosPositive" duration-ms="4" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCosPositive -->
+        <test-method status="PASS" signature="testLogZero()[pri:0, instance:testLogZero(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testLogZero" duration-ms="0" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogZero -->
+        <test-method status="PASS" signature="testCosNegative()[pri:0, instance:testCosNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testCosNegative" duration-ms="10" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCosNegative -->
+        <test-method status="PASS" signature="testpowerOfThreePositive()[pri:0, instance:testpowerOfThreePositive(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfThreePositive" duration-ms="9" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testpowerOfThreePositive -->
+        <test-method status="PASS" signature="testpowerOfThreeNegative()[pri:0, instance:testpowerOfThreeNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfThreeNegative" duration-ms="1" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testpowerOfThreeNegative -->
+        <test-method status="PASS" signature="testSinZero()[pri:0, instance:testSinZero(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testSinZero" duration-ms="7" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSinZero -->
+        <test-method status="PASS" signature="testLogPositive()[pri:0, instance:testLogPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testLogPositive" duration-ms="4" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogPositive -->
+        <test-method status="PASS" signature="testLogNegative()[pri:0, instance:testLogNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testLogNegative" duration-ms="8" started-at="2018-12-12T21:53:38Z" finished-at="2018-12-12T21:53:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogNegative -->
       </class> <!-- com.calculator.test_classes.ModelAdvancedOperationsTest -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->

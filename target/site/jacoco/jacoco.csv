@@ -1,7 +1,7 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 magnus_gustafson_calculator,com.calculator.main,Main,17,0,0,0,3,0,2,0,2,0
 magnus_gustafson_calculator,com.calculator.MVC,CalculatorController.CalculatorListener,192,0,18,0,23,0,11,0,2,0
-magnus_gustafson_calculator,com.calculator.MVC,ModelAdvancedOperations,43,13,0,0,18,5,6,3,6,3
+magnus_gustafson_calculator,com.calculator.MVC,ModelAdvancedOperations,0,56,0,0,0,23,0,9,0,9
 magnus_gustafson_calculator,com.calculator.MVC,ModelBasicOperations,0,35,0,0,0,13,0,5,0,5
 magnus_gustafson_calculator,com.calculator.MVC,CalculatorController,1149,0,116,0,161,0,65,0,7,0
 magnus_gustafson_calculator,com.calculator.MVC,CalculatorView,726,0,8,0,114,0,6,0,2,0

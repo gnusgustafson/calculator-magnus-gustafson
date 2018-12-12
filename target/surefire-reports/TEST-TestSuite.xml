@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="0.15" tests="6" errors="0" skipped="0" failures="0">
+<testsuite name="TestSuite" time="0.3" tests="41" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_171\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\magnu\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5482752411001481453.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\magnu\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf1038356596462638948.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_181/bin/server;C:/Program Files/Java/jre1.8.0_181/bin;C:/Program Files/Java/jre1.8.0_181/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Java\jre1.8.0_171\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Git\cmd;C:\Users\magnu\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\magnu\AppData\Local\Programs\Python\Python36-32\;C:\Users\magnu\AppData\Local\Microsoft\WindowsApps;C:\Users\magnu\Desktop\Eclipse Mars\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,10 +60,45 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testPi on testPi(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.008"/>
-  <testcase name="testpowerOfTwo on testpowerOfTwo(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.02"/>
-  <testcase name="testAdditionPositiveValues on testAdditionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.075"/>
-  <testcase name="testMultiplication on testMultiplication(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0"/>
-  <testcase name="testSubstraction on testSubstraction(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.032"/>
-  <testcase name="testDivision on testDivision(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.015"/>
+  <testcase name="testAdditionNegativeValues on testAdditionNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.04"/>
+  <testcase name="testMultiplicationWithZeroAndNegativeValue on testMultiplicationWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.014"/>
+  <testcase name="testAdditionPositiveValues on testAdditionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.016"/>
+  <testcase name="testSubstractionWithZeroOnly on testSubstractionWithZeroOnly(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0"/>
+  <testcase name="testAdditionWithZeroOnly on testAdditionWithZeroOnly(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0"/>
+  <testcase name="testSubstractionWithZeroAndNegativeValue on testSubstractionWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.02"/>
+  <testcase name="testDivisionNegativeValues on testDivisionNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.015"/>
+  <testcase name="testDivisionPositiveValues on testDivisionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.015"/>
+  <testcase name="testAdditionWithZeroAndPositiveValue on testAdditionWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.023"/>
+  <testcase name="testDivisionWithZeroAndPositiveValue on testDivisionWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.011"/>
+  <testcase name="testMultiplicationWithZeroOnly on testMultiplicationWithZeroOnly(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0"/>
+  <testcase name="testSubstractionNegativeValues on testSubstractionNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.01"/>
+  <testcase name="testAdditionWithZeroAndNegativeValue on testAdditionWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.006"/>
+  <testcase name="testSubstractioWithZeroAndPositiveValue on testSubstractioWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.01"/>
+  <testcase name="testSubstractionPositiveValues on testSubstractionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.01"/>
+  <testcase name="testMultiplicationNegativeValues on testMultiplicationNegativeValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.004"/>
+  <testcase name="testMultiplicationWithZeroAndPositiveValue on testMultiplicationWithZeroAndPositiveValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.004"/>
+  <testcase name="testDivisionWithZeroAndNegativeValue on testDivisionWithZeroAndNegativeValue(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.01"/>
+  <testcase name="testMultiplicationPositiveValues on testMultiplicationPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)" classname="com.calculator.test_classes.ModelBasicOperationsTest" time="0.006"/>
+  <testcase name="testpowerOfThreeZero on testpowerOfThreeZero(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testTanZero on testTanZero(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testpowerOfTwoPositive on testpowerOfTwoPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.006"/>
+  <testcase name="testpowerOfTwoZero on testpowerOfTwoZero(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testpowerOfTwoNegative on testpowerOfTwoNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.004"/>
+  <testcase name="testSquareRootZero on testSquareRootZero(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testSquareRootPositive on testSquareRootPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.01"/>
+  <testcase name="testSquareRootNegative on testSquareRootNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.006"/>
+  <testcase name="testTanPositive on testTanPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.004"/>
+  <testcase name="testPi on testPi(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testTanNegative on testTanNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.006"/>
+  <testcase name="testSinPositive on testSinPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.003"/>
+  <testcase name="testSinNegative on testSinNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.037"/>
+  <testcase name="testLogZero on testLogZero(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testCosZero on testCosZero(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testCosPositive on testCosPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testCosNegative on testCosNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testpowerOfThreePositive on testpowerOfThreePositive(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testpowerOfThreeNegative on testpowerOfThreeNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testSinZero on testSinZero(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0"/>
+  <testcase name="testLogPositive on testLogPositive(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.002"/>
+  <testcase name="testLogNegative on testLogNegative(com.calculator.test_classes.ModelAdvancedOperationsTest)" classname="com.calculator.test_classes.ModelAdvancedOperationsTest" time="0.008"/>
 </testsuite>

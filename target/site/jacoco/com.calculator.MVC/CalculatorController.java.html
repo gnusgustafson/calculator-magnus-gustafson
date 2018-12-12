@@ -101,7 +101,7 @@ public class CalculatorController {
 <span class="nc" id="L101">		this.cw.addCalculatorListener(new CalculatorListener());</span>
 
 <span class="nc" id="L103">	}</span>
-
+	
 	
 	/**
 	 * 
@@ -307,7 +307,7 @@ public class CalculatorController {
 
 					} else { //Om det inte �r den f�rsta ber�kningen, dvs. anv�ndaren har gjort en ber�kning tidigare. 
 
-<span class="nc bnc" id="L310" title="All 2 branches missed.">						if (calc.equals(&quot;�&quot;)) {</span>
+<span class="nc bnc" id="L310" title="All 2 branches missed.">						if (calc.equals(&quot;*&quot;)) {</span>
 <span class="nc bnc" id="L311" title="All 2 branches missed.">							if (counter &lt; 3) { //Om det �r f�rsta ber�kningen</span>
 <span class="nc" id="L312">								totSum = totSum + Double</span>
 <span class="nc" id="L313">										.parseDouble(toString(bo.multiplication(prevSum, Double.parseDouble(cw.input.getText()))));</span>
@@ -457,7 +457,7 @@ public class CalculatorController {
 <span class="nc" id="L457">					JOptionPane.showMessageDialog(null, &quot;Du m�ste ange ett v�rde&quot;);</span>
 				} else {
 
-<span class="nc bnc" id="L460" title="All 2 branches missed.">					if (calc.equals(&quot;�&quot;)) {</span>
+<span class="nc bnc" id="L460" title="All 2 branches missed.">					if (calc.equals(&quot;*&quot;)) {</span>
 <span class="nc" id="L461">						cw.input.setText(toString(bo.multiplication(prevSum, Double.parseDouble(cw.input.getText()))));</span>
 <span class="nc" id="L462">						calculate();</span>
 <span class="nc bnc" id="L463" title="All 2 branches missed.">					} else if (calc.equals(&quot;/&quot;)) {</span>
@@ -483,7 +483,7 @@ public class CalculatorController {
 <span class="nc bnc" id="L483" title="All 2 branches missed.">				if (cw.input.getText().isEmpty()) {</span>
 <span class="nc" id="L484">					JOptionPane.showMessageDialog(null, &quot;Du m�ste ange ett v�rde&quot;);</span>
 				} else {
-<span class="nc bnc" id="L486" title="All 2 branches missed.">					if (calc.equals(&quot;�&quot;)) {</span>
+<span class="nc bnc" id="L486" title="All 2 branches missed.">					if (calc.equals(&quot;*&quot;)) {</span>
 <span class="nc" id="L487">						cw.input.setText(toString(bo.multiplication(totSum, Double.parseDouble(cw.input.getText()))));</span>
 <span class="nc" id="L488">						calculate();</span>
 <span class="nc bnc" id="L489" title="All 2 branches missed.">					} else if (calc.equals(&quot;/&quot;)) {</span>

@@ -26,7 +26,9 @@ public class ModelBasicOperationsTest extends TestCase {
 	public static final Logger LOG = Logger.getLogger(ModelBasicOperations.class.getName());
 	
 	
-	
+	/*
+	 * Testar metoden addition i klassen ModelBasicOperations med enbart positiva värden
+	 */
 	@Test
 	public void testAdditionPositiveValues(){
 		
@@ -47,6 +49,10 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	
+	/*
+	 * Testar metoden addition i klassen ModelBasicOperations med enbart negativa värden
+	 */
 	@Test
 	public void testAdditionNegativeValues(){
 		
@@ -67,6 +73,9 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	/*
+	 * Testar metoden addition i klassen ModelBasicOperations med ett positivt argument samt med 0.0 som värde. 
+	 */
 	@Test
 	public void testAdditionWithZeroAndPositiveValue() {
 
@@ -92,6 +101,10 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 	
+	
+	/*
+	 * Testar metoden addition i klassen ModelBasicOperations med ett negativt argument samt med 0.0 som värde. 
+	 */
 	@Test
 	public void testAdditionWithZeroAndNegativeValue() {
 
@@ -117,6 +130,9 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 	
+	/*
+	 * Testar metoden addition i klassen ModelBasicOperations med enbart 0 och 0.0 som värde. 
+	 */
 	@Test
 	public void testAdditionWithZeroOnly() {
 
@@ -131,6 +147,10 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 
+	
+	/*
+	 * Testar metoden substraction i klassen ModelBasicOperations med enbart positiva värden
+	 */
 	@Test
 	public void testSubstractionPositiveValues(){
 		
@@ -151,6 +171,10 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	
+	/*
+	 * Testar metoden substraction i klassen ModelBasicOperations med enbart negativa värden
+	 */
 	@Test
 	public void testSubstractionNegativeValues(){
 		
@@ -171,6 +195,9 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	/*
+	 * Testar metoden substraction i klassen ModelBasicOperations med positiva värden samt 0.0
+	 */
 	@Test
 	public void testSubstractioWithZeroAndPositiveValue() {
 
@@ -196,6 +223,9 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 	
+	/*
+	 * Testar metoden substraction i klassen ModelBasicOperations med negativa värden samt 0.0
+	 */
 	@Test
 	public void testSubstractionWithZeroAndNegativeValue() {
 
@@ -221,6 +251,9 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 	
+	/*
+	 * Testar metoden substraction i klassen ModelBasicOperations med enbart 0 samt 0.0
+	 */
 	@Test
 	public void testSubstractionWithZeroOnly() {
 
@@ -235,6 +268,10 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 
+	
+	/*
+	 * Testar metoden multiplication i klassen ModelBasicOperations med enbart positiva värden
+	 */
 	@Test
 	public void testMultiplicationPositiveValues(){
 		
@@ -255,6 +292,9 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	/*
+	 * Testar metoden multiplication i klassen ModelBasicOperations med enbart negativa värden
+	 */
 	@Test
 	public void testMultiplicationNegativeValues(){
 		
@@ -275,6 +315,10 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	
+	/*
+	 * Testar metoden multiplication i klassen ModelBasicOperations med ett positivt värde samt 0
+	 */
 	@Test
 	public void testMultiplicationWithZeroAndPositiveValue() {
 
@@ -301,6 +345,9 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 	
+	/*
+	 * Testar metoden multiplication i klassen ModelBasicOperations med ett negativt värde samt 0
+	 */
 	@Test
 	public void testMultiplicationWithZeroAndNegativeValue() {
 
@@ -326,6 +373,9 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 	
+	/*
+	 * Testar metoden multiplication i klassen ModelBasicOperations med enbart 0 samt 0.0
+	 */
 	@Test
 	public void testMultiplicationWithZeroOnly() {
 
@@ -340,6 +390,9 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 
+	/*
+	 * Testar metoden division i klassen ModelBasicOperations med enbart positiva värden
+	 */
 	@Test
 	public void testDivisionPositiveValues(){
 		
@@ -360,6 +413,9 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	/*
+	 * Testar metoden division i klassen ModelBasicOperations med enbart negativa värden
+	 */
 	@Test
 	public void testDivisionNegativeValues(){
 		
@@ -380,6 +436,9 @@ public class ModelBasicOperationsTest extends TestCase {
 		
 	}
 	
+	/*
+	 * Testar metoden division i klassen ModelBasicOperations med ett positivt värde samt 0
+	 */
 	@Test
 	public void testDivisionWithZeroAndPositiveValue() {
 
@@ -404,6 +463,9 @@ public class ModelBasicOperationsTest extends TestCase {
 
 	}
 	
+	/*
+	 * Testar metoden division i klassen ModelBasicOperations med ett negativt värde samt 0
+	 */
 	@Test
 	public void testDivisionWithZeroAndNegativeValue() {
 
