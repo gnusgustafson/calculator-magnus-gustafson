@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculatorView.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">magnus_gustafson_calculator</a> &gt; <a href="index.source.html" class="el_package">com.calculator.MVC</a> &gt; <span class="el_source">CalculatorView.java</span></div><h1>CalculatorView.java</h1><pre class="source lang-java linenums">package com.calculator.MVC;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+/**
+ * I denna klass �terfinns samtliga resurser g�llande programmets grafiska gr�nssnitt (GUI). Programmet utvidgar
+ * JFrame och �rver samt utvidgar d�rmed dess inneh�ll.  
+ * 
+ * @author Magnus Gustafson - KVALIT18
+ * @version 1.0 ALPHA, 2018-12-10
+ * 
+ *
+ */
+
+
+@SuppressWarnings(&quot;serial&quot;)
+public class CalculatorView extends JFrame {
+
+	/**
+	 * Array med knappar som avser minir�knarens siffror samt &quot;.&quot; och &quot;=&quot;
+	 */
+<span class="nc" id="L33">	protected JButton[] digits = new JButton[12];</span>
+	/**
+	 * Array med knappar som avser minir�knarens avancerade utr�kningar, ex. x^2
+	 */
+<span class="nc" id="L37">	protected JButton[] advancedCalc = new JButton[8];</span>
+	/**
+	 * Array med knappar som avser minir�knarens fyra r�knes�tt, +,-,*,/
+	 */
+<span class="nc" id="L41">	protected JButton[] standardCalc = new JButton[4];</span>
+	/**
+	 * Array med knappar som avser minir�knarens knappar f�r &quot;C&quot;, &quot;pil bak�t&quot; samt &quot;+-&quot;
+	 */
+<span class="nc" id="L45">	protected JButton[] options = new JButton[3];</span>
+	/**
+	 * Minir�knarens inmatningsf�lt
+	 */
+<span class="nc" id="L49">	protected JTextField input = new JTextField(&quot;&quot;);</span>
+	/**
+	 * Minir�knarens presentationsf�lt
+	 */
+<span class="nc" id="L53">	protected JLabel results = new JLabel();</span>
+
+
+<span class="nc" id="L56">	public CalculatorView() {</span>
+
+<span class="nc" id="L58">		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //St�ngs om anv�ndaren trycker p� kryss</span>
+
+<span class="nc" id="L60">		JPanel container = new JPanel(); //Container-panel inneh�llandes �vriga paneler. </span>
+<span class="nc" id="L61">		this.add(container); //Panelen adderas till f�nstret</span>
+<span class="nc" id="L62">		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS)); //BowLayout enligt Y-axeln, dvs. inneh�llet centreras vetrikalt.</span>
+
+<span class="nc" id="L64">		JPanel input_output = new JPanel(); //Panel f�r inmatningsf�lt samt resultatf�ltet. </span>
+<span class="nc" id="L65">		input_output.setLayout(new BoxLayout(input_output, BoxLayout.Y_AXIS));</span>
+
+<span class="nc" id="L67">		input.setMinimumSize(new Dimension(200, 50));</span>
+<span class="nc" id="L68">		input.setMaximumSize(new Dimension(200, 50));</span>
+
+<span class="nc" id="L70">		input.setEditable(false); //Tar enbart input genom siffer-knapparna.</span>
+<span class="nc" id="L71">		input.setBackground(Color.white);</span>
+
+<span class="nc" id="L73">		input_output.add(Box.createRigidArea(new Dimension(0, 10)));</span>
+<span class="nc" id="L74">		input_output.add(results);</span>
+<span class="nc" id="L75">		input_output.add(Box.createRigidArea(new Dimension(0, 10)));</span>
+<span class="nc" id="L76">		input_output.add(input);</span>
+<span class="nc" id="L77">		input_output.add(Box.createRigidArea(new Dimension(0, 20)));</span>
+<span class="nc" id="L78">		container.add(input_output);</span>
+
+<span class="nc" id="L80">		JPanel optionsPanel = new JPanel(); //Panel f�r knapparna &quot;C&quot;, &quot;&lt;-&quot; samt &quot;+-&quot;</span>
+<span class="nc" id="L81">		optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.X_AXIS));</span>
+<span class="nc" id="L82">		optionsPanel.setPreferredSize(new Dimension(500, 300));</span>
+
+<span class="nc" id="L84">		options[0] = new JButton(&quot;\u00B1&quot;); //+-</span>
+<span class="nc" id="L85">		options[1] = new JButton(&quot;\u2190&quot;);//&lt;-</span>
+<span class="nc" id="L86">		options[2] = new JButton(&quot;C&quot;);</span>
+
+<span class="nc" id="L88">		optionsPanel.add(options[0]);</span>
+<span class="nc" id="L89">		optionsPanel.add(options[1]);</span>
+<span class="nc" id="L90">		optionsPanel.add(options[2]);</span>
+
+<span class="nc" id="L92">		container.add(optionsPanel);</span>
+
+<span class="nc" id="L94">		JPanel buttonsPanel = new JPanel();</span>
+<span class="nc" id="L95">		buttonsPanel.setMinimumSize(new Dimension(600, 400));</span>
+<span class="nc" id="L96">		buttonsPanel.setMaximumSize(new Dimension(600, 400));</span>
+<span class="nc" id="L97">		container.add(buttonsPanel);</span>
+
+<span class="nc" id="L99">		JPanel advancedPanel = new JPanel();</span>
+
+<span class="nc" id="L101">		GridLayout digits1 = new GridLayout(4, 3); </span>
+<span class="nc" id="L102">		digits1 = new GridLayout(4, 3);</span>
+<span class="nc" id="L103">		advancedPanel.setLayout(digits1);</span>
+
+<span class="nc" id="L105">		advancedCalc[0] = new JButton(&quot;x^2&quot;);</span>
+<span class="nc" id="L106">		advancedCalc[1] = new JButton(&quot;x^3&quot;);</span>
+<span class="nc" id="L107">		advancedCalc[2] = new JButton(&quot;\u221A&quot;); // SQRT</span>
+<span class="nc" id="L108">		advancedCalc[3] = new JButton(&quot;\u33D2&quot;); // log</span>
+<span class="nc" id="L109">		advancedCalc[4] = new JButton(&quot;SIN&quot;);</span>
+<span class="nc" id="L110">		advancedCalc[5] = new JButton(&quot;COS&quot;);</span>
+<span class="nc" id="L111">		advancedCalc[6] = new JButton(&quot;TAN&quot;);</span>
+<span class="nc" id="L112">		advancedCalc[7] = new JButton(&quot;\u03C0&quot;); // PI</span>
+
+<span class="nc" id="L114">		advancedPanel.add(advancedCalc[0]);</span>
+<span class="nc" id="L115">		advancedPanel.add(advancedCalc[1]);</span>
+<span class="nc" id="L116">		advancedPanel.add(advancedCalc[2]);</span>
+<span class="nc" id="L117">		advancedPanel.add(advancedCalc[3]);</span>
+<span class="nc" id="L118">		advancedPanel.add(advancedCalc[4]);</span>
+<span class="nc" id="L119">		advancedPanel.add(advancedCalc[5]);</span>
+<span class="nc" id="L120">		advancedPanel.add(advancedCalc[6]);</span>
+<span class="nc" id="L121">		advancedPanel.add(advancedCalc[7]);</span>
+
+<span class="nc" id="L123">		advancedPanel.setPreferredSize(new Dimension(150, 200));</span>
+
+<span class="nc" id="L125">		buttonsPanel.add(advancedPanel);</span>
+
+<span class="nc" id="L127">		JPanel digitsPanel = new JPanel();</span>
+<span class="nc" id="L128">		digitsPanel.setLayout(new BoxLayout(input_output, BoxLayout.X_AXIS));</span>
+
+<span class="nc" id="L130">		digits1 = new GridLayout(4, 3);</span>
+
+<span class="nc" id="L132">		digits[0] = new JButton(&quot;7&quot;);</span>
+<span class="nc" id="L133">		digits[1] = new JButton(&quot;8&quot;);</span>
+<span class="nc" id="L134">		digits[2] = new JButton(&quot;9&quot;);</span>
+<span class="nc" id="L135">		digits[3] = new JButton(&quot;4&quot;);</span>
+<span class="nc" id="L136">		digits[4] = new JButton(&quot;5&quot;);</span>
+<span class="nc" id="L137">		digits[5] = new JButton(&quot;6&quot;);</span>
+<span class="nc" id="L138">		digits[6] = new JButton(&quot;1&quot;);</span>
+<span class="nc" id="L139">		digits[7] = new JButton(&quot;2&quot;);</span>
+<span class="nc" id="L140">		digits[8] = new JButton(&quot;3&quot;);</span>
+<span class="nc" id="L141">		digits[9] = new JButton(&quot;0&quot;);</span>
+<span class="nc" id="L142">		digits[10] = new JButton(&quot;.&quot;);</span>
+<span class="nc" id="L143">		digits[11] = new JButton(&quot;=&quot;);</span>
+
+<span class="nc" id="L145">		digitsPanel.setLayout(digits1);</span>
+<span class="nc" id="L146">		digitsPanel.add(digits[0]);</span>
+<span class="nc" id="L147">		digitsPanel.add(digits[1]);</span>
+<span class="nc" id="L148">		digitsPanel.add(digits[2]);</span>
+<span class="nc" id="L149">		digitsPanel.add(digits[3]);</span>
+<span class="nc" id="L150">		digitsPanel.add(digits[4]);</span>
+<span class="nc" id="L151">		digitsPanel.add(digits[5]);</span>
+<span class="nc" id="L152">		digitsPanel.add(digits[6]);</span>
+<span class="nc" id="L153">		digitsPanel.add(digits[7]);</span>
+<span class="nc" id="L154">		digitsPanel.add(digits[8]);</span>
+<span class="nc" id="L155">		digitsPanel.add(digits[9]);</span>
+<span class="nc" id="L156">		digitsPanel.add(digits[10]);</span>
+<span class="nc" id="L157">		digitsPanel.add(digits[11]);</span>
+
+<span class="nc" id="L159">		digitsPanel.setPreferredSize(new Dimension(200, 200));</span>
+<span class="nc" id="L160">		buttonsPanel.add(digitsPanel);</span>
+
+<span class="nc" id="L162">		digits1 = new GridLayout(4, 0);</span>
+<span class="nc" id="L163">		JPanel basicCalc = new JPanel();</span>
+<span class="nc" id="L164">		basicCalc.setLayout(digits1);</span>
+
+<span class="nc" id="L166">		standardCalc[0] = new JButton(&quot;/&quot;);</span>
+<span class="nc" id="L167">		standardCalc[1] = new JButton(&quot;�&quot;);</span>
+<span class="nc" id="L168">		standardCalc[2] = new JButton(&quot;-&quot;);</span>
+<span class="nc" id="L169">		standardCalc[3] = new JButton(&quot;+&quot;);</span>
+
+<span class="nc" id="L171">		basicCalc.add(standardCalc[0]);</span>
+<span class="nc" id="L172">		basicCalc.add(standardCalc[1]);</span>
+<span class="nc" id="L173">		basicCalc.add(standardCalc[2]);</span>
+<span class="nc" id="L174">		basicCalc.add(standardCalc[3]);</span>
+
+<span class="nc" id="L176">		basicCalc.setPreferredSize(new Dimension(50, 200));</span>
+<span class="nc" id="L177">		buttonsPanel.add(basicCalc);</span>
+
+<span class="nc" id="L179">		this.setSize(680, 900);</span>
+<span class="nc" id="L180">		this.setVisible(true); //F�nstret visas vid start. </span>
+
+<span class="nc" id="L182">	}</span>
+
+	/**
+	 * Funktion f�r att addera lyssnare till samtliga knappar. 
+	 * 
+	 * @param listenForButtons lyssna etfer knapptryck
+	 */
+	public void addCalculatorListener(ActionListener listenForButtons) {
+
+<span class="nc bnc" id="L191" title="All 2 branches missed.">		for (int i = 0; i &lt; standardCalc.length; i++) {</span>
+<span class="nc" id="L192">			standardCalc[i].addActionListener(listenForButtons);</span>
+		}
+
+<span class="nc bnc" id="L195" title="All 2 branches missed.">		for (int i = 0; i &lt; advancedCalc.length; i++) {</span>
+<span class="nc" id="L196">			advancedCalc[i].addActionListener(listenForButtons);</span>
+		}
+
+<span class="nc bnc" id="L199" title="All 2 branches missed.">		for (int i = 0; i &lt; digits.length; i++) {</span>
+<span class="nc" id="L200">			digits[i].addActionListener(listenForButtons);</span>
+		}
+
+<span class="nc bnc" id="L203" title="All 2 branches missed.">		for (int i = 0; i &lt; options.length; i++) {</span>
+<span class="nc" id="L204">			options[i].addActionListener(listenForButtons);</span>
+		}
+
+<span class="nc" id="L207">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

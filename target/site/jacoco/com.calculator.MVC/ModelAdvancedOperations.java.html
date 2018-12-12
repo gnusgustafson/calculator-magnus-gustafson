@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ModelAdvancedOperations.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">magnus_gustafson_calculator</a> &gt; <a href="index.source.html" class="el_package">com.calculator.MVC</a> &gt; <span class="el_source">ModelAdvancedOperations.java</span></div><h1>ModelAdvancedOperations.java</h1><pre class="source lang-java linenums">package com.calculator.MVC;
+
+import com.calculator.interfaces.CalculatorAdvancedOperationsInterface;
+
+/**
+ * Denna klass genomf�r minir�knarens avancerade ber�kningar med hj�lp av att implementera interface CalculatorAdvancedOperations.  
+ * 
+ * @author Magnus Gustafson - KVALIT18
+ * @version 1.0 ALPHA, 2018-12-10
+ * 
+ *
+ */
+
+<span class="fc" id="L14">public class ModelAdvancedOperations implements CalculatorAdvancedOperationsInterface{</span>
+
+	 
+	/**
+	 * Denna funktion tar ett double-v�rde som parameter och ber�knar d�refter
+	 * talet upph�jt till 2. Resultatet lagras i variabeln result som sedan returneras.
+	 * 
+	 * @param a
+	 * @return result
+	 */
+	public double powerOfTwo(double a) {
+		
+<span class="fc" id="L26">		double result = 0;</span>
+<span class="fc" id="L27">		result = Math.pow(a, 2);</span>
+		
+<span class="fc" id="L29">		return result;</span>
+	}
+
+	
+	/**
+	 * Denna funktion tar ett double-v�rde som parameter och ber�knar d�refter
+	 * talet upph�jt till 3. Resultatet lagras i variabeln result som sedan returneras.
+	 * 
+	 * @param a
+	 * @return result
+	 */
+	public double powerOfThree(double a) {
+		
+<span class="nc" id="L42">		double result = 0;</span>
+<span class="nc" id="L43">		result = Math.pow(a, 3);</span>
+		
+<span class="nc" id="L45">		return result;</span>
+	}
+
+	
+	/**
+	 * Denna funktion returnerar v�rdet av pi som en double. 
+	 * 
+	 * @return Math.PI
+	 */
+	public double pi() {
+		
+<span class="fc" id="L56">		return Math.PI;</span>
+	}
+
+	
+	/**
+	 * Denna funktion tar ett double-v�rde som parameter och ber�knar d�refter
+	 * log10(a) vilket lagras i double-variabeln result som sedan returneras. 
+	 * 
+	 * @param a
+	 * @return result
+	 */
+	public double log(double a) {
+		
+<span class="nc" id="L69">		double result = 0;</span>
+<span class="nc" id="L70">		result = Math.log10(a);</span>
+		
+<span class="nc" id="L72">		return result;</span>
+		
+	}
+
+	/**
+	 * Denna funktion tar ett double-v�rde som parameter och ber�knar d�refter
+	 * sin(a) vilket lagras i double-variabeln result som sedan returneras. 
+	 * 
+	 * @param a
+	 * @return result
+	 */
+	public double sin(double a) {
+
+<span class="nc" id="L85">		double result = 0;</span>
+<span class="nc" id="L86">		result = Math.sin(a);</span>
+		//result = Math.toRadians(result);
+		
+<span class="nc" id="L89">		return result;</span>
+				
+	}
+	
+	/**
+	 * Denna funktion tar ett double-v�rde som parameter och ber�knar d�refter
+	 * cos(a) vilket lagras i double-variabeln result som sedan returneras. 
+	 * 
+	 * @param a
+	 * @return result
+	 */
+	public double cos(double a) { // Ovservera - GRADER och inte radianer. 
+
+<span class="nc" id="L102">		double result = 0;</span>
+<span class="nc" id="L103">		result = Math.cos(a);</span>
+		
+<span class="nc" id="L105">		return result;</span>
+	
+	}
+
+	/**
+	 * Denna funktion tar ett double-v�rde som parameter och ber�knar d�refter
+	 * tan(a) vilket lagras i double-variabeln result som sedan returneras. 
+	 * 
+	 * @param a
+	 * @return result
+	 */
+	public double tan(double a) {
+		
+<span class="nc" id="L118">		double result = 0;</span>
+<span class="nc" id="L119">		result = Math.tan(a);</span>
+		
+<span class="nc" id="L121">		return result;</span>
+
+	}
+
+	/**
+	 * Denna funktion tar ett double-v�rde som parameter och ber�knar d�refter
+	 * kvadratroten ur parametern a. Detta lagras i double-variabeln result som sedan returneras. 
+	 * 
+	 * @param a
+	 * @return result
+	 */
+	public double squareRoot(double a) {
+
+<span class="nc" id="L134">		double result = 0;</span>
+<span class="nc" id="L135">		result = Math.sqrt(a);</span>
+		
+<span class="nc" id="L137">		return result;</span>
+
+	}
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

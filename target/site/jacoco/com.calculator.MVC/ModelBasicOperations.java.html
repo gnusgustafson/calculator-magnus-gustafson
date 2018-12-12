@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ModelBasicOperations.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">magnus_gustafson_calculator</a> &gt; <a href="index.source.html" class="el_package">com.calculator.MVC</a> &gt; <span class="el_source">ModelBasicOperations.java</span></div><h1>ModelBasicOperations.java</h1><pre class="source lang-java linenums">package com.calculator.MVC;
+
+import com.calculator.interfaces.CalculatorBasicOperationsInterface;
+
+
+/**
+ * 
+ * Denna klass implementerar interfacet &quot;CalculatorBasicOperationsInterface&quot; och anv�nds har ber�kning enligt de fyra 
+ * r�knes�tten addition, subtraktion, multiplikation samt division, dvs. &quot;+&quot;,&quot;-&quot;, &quot;*&quot;, &quot;/&quot;
+ * 
+ * @author Magnus Gustafson - KVALIT18
+ * @version 1.0 ALPHA, 2018-12-10
+ * 
+ *
+ */
+
+<span class="fc" id="L17">public class ModelBasicOperations implements CalculatorBasicOperationsInterface{</span>
+
+	
+	/**
+	 * Denna metod tar emot tv� double-v�rden som parameter. V�rdena adderas med varandra och 
+	 * resultatet lagras i variabeln result som sedan returneras.
+	 * 
+	 * @param a, b
+	 * @return result
+	 */
+	
+	public double addition(double a, double b) {
+		
+<span class="fc" id="L30">		double result = 0;</span>
+<span class="fc" id="L31">		result = a + b;</span>
+<span class="fc" id="L32">		return result;</span>
+	}
+	
+	/**
+	 * Denna metod tar emot tv� double-v�rden som parameter. V�rdena subtraheras med varandra och 
+	 * resultatet lagras i variabeln result som sedan returneras.
+	 * 
+	 * @param a, b
+	 * @return result
+	 */
+
+	public double substraction(double a, double b) {
+		
+<span class="fc" id="L45">		double result = 0;</span>
+<span class="fc" id="L46">		result = a - b;</span>
+<span class="fc" id="L47">		return result;</span>
+	}
+	
+	/**
+	 * Denna metod tar emot tv� double-v�rden som parameter. V�rdena multipliceras med varandra och 
+	 * resultatet lagras i variabeln result som sedan returneras.
+	 * 
+	 * @param a, b
+	 * @return result
+	 */
+
+	public double multiplication(double a, double b) {
+		
+<span class="fc" id="L60">		double result = 0;</span>
+<span class="fc" id="L61">		result = a * b;</span>
+<span class="fc" id="L62">		return result;</span>
+	}
+
+	/**
+	 * Denna metod tar emot tv� double-v�rden som parameter. V�rdena divideras med varandra och 
+	 * resultatet lagras i variabeln result som sedan returneras.
+	 * 
+	 * @param a, b
+	 * @return result
+	 */
+	
+	public double division(double a, double b) {
+		
+<span class="fc" id="L75">		double result = 0;</span>
+<span class="fc" id="L76">		result = a / b;</span>
+<span class="fc" id="L77">		return result;</span>
+	}
+	
+
+
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

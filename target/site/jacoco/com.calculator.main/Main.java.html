@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">magnus_gustafson_calculator</a> &gt; <a href="index.source.html" class="el_package">com.calculator.main</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package com.calculator.main;
+
+
+import com.calculator.MVC.*;
+/**
+ * 
+ * Detta �r klassen som inneh�ller main-metoden och som startar programmet. Main-metoden instansierar
+ * CalculatorController som i sin tur ModelBasicOperations, ModelAdvancedOperations samt CalculatorView som argument. 
+ * 
+ * Programmet f�ljer designm�nstret Model, View, Controller d�r &quot;Model&quot; genomf�r samtliga ber�kningar, &quot;View&quot; hanterar all grafik (GUI) och &quot;Controller&quot;
+ * Sammanf�r de b�da f�r hantering och presentation. 
+ * 
+ * 
+ * @author Magnus Gustafson - KVALIT18
+ * @version 1.0 ALPHA, 2018-12-10
+ * 
+ *
+ */
+
+<span class="nc" id="L20">public class Main {</span>
+
+	/**
+	 * Main-metoden instansierar CalculatorController som i sin tur ModelBasicOperations, 
+	 * ModelAdvancedOperations samt CalculatorView som argument.
+	 * 
+	 * @param args
+	 */
+	
+	public static void main(String[] args) {
+		
+
+		
+		@SuppressWarnings(&quot;unused&quot;) //Vet uppriktigt inte vad detta betyder, men eftersom objektet inte anv�nds s� ger den en varning annars. 
+<span class="nc" id="L34">		CalculatorController c = new CalculatorController(new ModelBasicOperations(), new ModelAdvancedOperations(), new CalculatorView());</span>
+		
+
+<span class="nc" id="L37">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

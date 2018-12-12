@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="240" started-at="2018-12-12T13:22:21Z" finished-at="2018-12-12T13:22:21Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="240" started-at="2018-12-12T13:22:21Z" finished-at="2018-12-12T13:22:21Z">
+      <class name="com.calculator.test_classes.ModelBasicOperationsTest">
+        <test-method status="PASS" signature="testAdditionPositiveValues()[pri:0, instance:testAdditionPositiveValues(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testAdditionPositiveValues" duration-ms="75" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAdditionPositiveValues -->
+        <test-method status="PASS" signature="testMultiplication()[pri:0, instance:testMultiplication(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testMultiplication" duration-ms="0" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMultiplication -->
+        <test-method status="PASS" signature="testSubstraction()[pri:0, instance:testSubstraction(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testSubstraction" duration-ms="47" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSubstraction -->
+        <test-method status="PASS" signature="testDivision()[pri:0, instance:testDivision(com.calculator.test_classes.ModelBasicOperationsTest)]" name="testDivision" duration-ms="15" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDivision -->
+      </class> <!-- com.calculator.test_classes.ModelBasicOperationsTest -->
+      <class name="com.calculator.test_classes.ModelAdvancedOperationsTest">
+        <test-method status="PASS" signature="testPi()[pri:0, instance:testPi(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testPi" duration-ms="12" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testPi -->
+        <test-method status="PASS" signature="testpowerOfTwo()[pri:0, instance:testpowerOfTwo(com.calculator.test_classes.ModelAdvancedOperationsTest)]" name="testpowerOfTwo" duration-ms="21" started-at="2018-12-12T14:22:21Z" finished-at="2018-12-12T14:22:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testpowerOfTwo -->
+      </class> <!-- com.calculator.test_classes.ModelAdvancedOperationsTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

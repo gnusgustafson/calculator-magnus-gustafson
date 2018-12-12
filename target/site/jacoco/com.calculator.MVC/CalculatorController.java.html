@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CalculatorController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">magnus_gustafson_calculator</a> &gt; <a href="index.source.html" class="el_package">com.calculator.MVC</a> &gt; <span class="el_source">CalculatorController.java</span></div><h1>CalculatorController.java</h1><pre class="source lang-java linenums">package com.calculator.MVC;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
+import com.calculator.interfaces.CalculatorAdvancedOperationsInterface;
+import com.calculator.interfaces.CalculatorBasicOperationsInterface;
+
+/**
+ * Detta �r kontroller-klassen som samspelar mellan klasserna ControllerView, ModelBasicOperations samt ModelAdvancedOperations. 
+ * Genom att skapa instanser av dessa klasser ges �tkomst till inneh�ll, dvs. de grafiska komponenterna samt funktioner
+ * f�r att genomf�ra ber�kningar. 
+ * 
+ * @author Magnus Gustafson - KVALIT18
+ * @version 1.0 ALPHA, 2018-12-10
+ * 
+ *
+ */
+
+public class CalculatorController {
+
+	/**
+	 * En instans av interface CalculatorAdvancedOperationsInterface. Anv�nds f�r �tkomst
+	 * av de avancerade utr�kningarna i minir�knaren. 
+	 */
+	CalculatorAdvancedOperationsInterface ao;
+	
+	/**
+	 * En instans av interface CalculatorBasicOperationsInterface. Anv�nds f�r �tkomst
+	 * av de grundl�ggande utr�kningarna i minir�knaren. 
+	 */
+	CalculatorBasicOperationsInterface bo;
+	
+	/**
+	 * En instans av klassen CalculatorView. Anv�nds f�r �tkomst
+	 * av gr�nssnittskomponenterna.  
+	 */
+	CalculatorView cw;
+
+	/**
+	 * variabeln prevSum anv�nds vid den allra f�rsta ber�kningen f�r att kunna lagra talet. Detta g�rs
+	 * eftersom programmet vid detta tillf�lle beh�ver inv�nta det andra talet f�r en utr�kning 
+	 */
+<span class="nc" id="L46">	double prevSum = 0;</span>
+	
+	/**
+	 * variabeln counter anv�nds f�r att avg�ra om minir�knaren utf�r en f�rsta ber�kning, dvs. att inga andra utr�kningar tidigare genomf�rts.  
+	 */
+<span class="nc" id="L51">	int counter = 0;</span>
+	
+	/**
+	 * variabeln totSum lagrar v�rdet av en utr�kning som sedan presenteras i gr�nssnittet.  
+	 */
+<span class="nc" id="L56">	double totSum = 0;</span>
+	
+	/**
+	 * Variabeln calc inneh�ller den operation, dvs. utr�kning som en anv�ndare har valt att g�ra. Denna anv�nds sedan
+	 * f�r att kontrollera vilken given ber�kning som programmet ska genomf�ra.  
+	 */
+<span class="nc" id="L62">	String calc = &quot;&quot;;</span>
+	
+	/**
+	 * isActive anv�nds f�r att f�r att kontrollera om en utr�kning precis genomf�rts. Detta inneb�r att resultatet rensas fr�n input-f�ltet 
+	 * och l�mnar plats f�r nya tal som anges
+	 */
+<span class="nc" id="L68">	boolean isActive = true;</span>
+	
+	/**
+	 * piActive anv�nds f�r att kontrollera om anv�ndaren har anv�nt pi vid en ber�kning. Anv�ndaren ska inte kunna anv�nds sig av pi mer �n en g�ng
+	 * vid varje enskild ber�kning. 
+	 */
+<span class="nc" id="L74">	boolean piActive = true;</span>
+
+	
+	/**
+	 * Klassens konstruktor. 
+	 * 
+	 * Instansierar de tre objekten bo, ao och cw med hj�lp av parametrarna model1 som refererar till klassen ModelBasicOperations, 
+	 * model2 som refererar till klassen ModelAdvancedOperations samt view1 som refererar till klassen CalculatorView. 
+	 * Detta ger s�ledes �tkomst till metoderna f�r genomf�ra de olika ber�kningarna samt till det grafiska gr�nssnittet. 
+	 * 
+	 * 
+	 * @param model1
+	 * @param model2
+	 * @param view1
+	 */
+<span class="nc" id="L89">	public CalculatorController(ModelBasicOperations model1, ModelAdvancedOperations model2, CalculatorView view1) {</span>
+
+<span class="nc" id="L91">		this.bo = model1; // Notera att de b�da instanserna pekar p� interfacen</span>
+							// och inte klasserna!!
+<span class="nc" id="L93">		this.ao = model2;</span>
+<span class="nc" id="L94">		this.cw = view1; // View implementerar inte n�got interface, s� detta</span>
+							// blir en instans av klassen
+
+		
+		/**
+		 * Metoden addCalculatorListener i klassen ControllerView anropas genom instansen &quot;cw&quot; med lyssnarklassen som argument 
+		 */
+<span class="nc" id="L101">		this.cw.addCalculatorListener(new CalculatorListener());</span>
+
+<span class="nc" id="L103">	}</span>
+
+	
+	/**
+	 * 
+	 * Klass f�r h�ndelsehantering (lyssnare), dvs. om en av knapparna i minir�knaren anv�nds. 
+	 * Notera metoden addCalculatorListener i klassen CalculatorView d�r lyssnare adderas. 
+	 * 
+	 * @author Magnus Gustafson - KVALIT18
+	 * @version 1.0 ALPHA, 2018-12-10
+	 * 
+	 *
+	 */
+<span class="nc" id="L116">	class CalculatorListener implements ActionListener {</span>
+
+		public void actionPerformed(ActionEvent e) {
+
+			/**
+			 * Om knappen +- anv�nds, blir talet i inmatningsf�ltet antingen positivt eller negativt vilket beror p� urpsrungsv�rdet. 
+			 */
+<span class="nc bnc" id="L123" title="All 2 branches missed.">			if (e.getSource() == cw.options[0]) { // Knapp f�r +-</span>
+
+<span class="nc bnc" id="L125" title="All 4 branches missed.">				if (!cw.input.getText().equals(&quot;&quot;) &amp;&amp; !cw.input.getText().equals(&quot;0&quot;)) {</span>
+
+<span class="nc bnc" id="L127" title="All 2 branches missed.">					if (cw.input.getText().charAt(0) == '-') {</span>
+<span class="nc" id="L128">						cw.input.setText(cw.input.getText().substring(1, cw.input.getText().length()));</span>
+					} else {
+<span class="nc" id="L130">						cw.input.setText(&quot;-&quot; + cw.input.getText());</span>
+					}
+
+				}
+
+			}
+
+			
+			/**
+			 * Om pil-knappen anv�nds, skall en siffra tas bort fr�n inmatningsf�ltet. Kontrollerar
+			 * f�rst om det finns en siffra i inmatningsf�ltet. 
+			 */
+<span class="nc bnc" id="L142" title="All 2 branches missed.">			if (e.getSource() == cw.options[1]) { // Knapp f�r att ta bort EN</span>
+													// siffra
+
+<span class="nc bnc" id="L145" title="All 2 branches missed.">				if (cw.input.getText().length() &gt; 0) {</span>
+<span class="nc" id="L146">					cw.input.setText(cw.input.getText().substring(0, cw.input.getText().length() - 1));</span>
+
+<span class="nc bnc" id="L148" title="All 4 branches missed.">					if (cw.input.getText().length() == 1 &amp;&amp; cw.input.getText().charAt(0) == '-') {</span>
+<span class="nc" id="L149">						cw.input.setText(&quot;&quot;);</span>
+					}
+				}
+
+			}
+
+			/**
+			 * Knappen f�r &quot;C&quot; rensar och �terst�ller samtliga variabler till deras default-v�rde.  
+			 */
+			
+<span class="nc bnc" id="L159" title="All 2 branches missed.">			if (e.getSource() == cw.options[2]) { // Knappen f�r C, dvs. allt</span>
+													// rensas.
+
+<span class="nc" id="L162">				cw.input.setText(&quot;&quot;);</span>
+<span class="nc" id="L163">				prevSum = 0;</span>
+<span class="nc" id="L164">				counter = 0;</span>
+<span class="nc" id="L165">				cw.results.setText(&quot; &quot;);</span>
+<span class="nc" id="L166">				totSum = 0;</span>
+<span class="nc" id="L167">				isActive = true;</span>
+<span class="nc" id="L168">				piActive = true;</span>
+
+			}
+
+			/**
+			 * Unders�ker om en siffra trycks p� och agerar d�refter - Se metod &quot;digitsClicked()&quot;
+			 */
+			
+<span class="nc" id="L176">			digitsClicked(e.getSource()); // S�ker efter siffror, hittar och</span>
+											// ritar upp i inputf�ltet
+
+			/**
+			 * Unders�ker Om +, -, *, / trycks p� och agerar d�refter - Se metod &quot;standardCalc()&quot;
+			 */
+			
+<span class="nc" id="L183">			standardCalcClicked(e.getSource()); // Om +, -, *, / trycks</span>
+
+			/**
+			 * Unders�ker om n�gon av de avancerade r�knes�tten trycks p� och agerar d�refter - Se metod &quot;advancedCalc()&quot;
+			 */
+			
+<span class="nc" id="L189">			advancedCalcClicked(e.getSource());</span>
+
+<span class="nc" id="L191">		}</span>
+
+	}
+
+	
+	/**
+	 * Denna funktion kontrollerar om en av knapparna f�r avancerad utr�kning har tryckts p�, ex. x^2.
+	 * H�r anv�nds objektet &quot;ao&quot; som pekar p� klassen ModelAdvancedOperations och sedermera interface CalculatorAdvancedOperationsInterface.
+	 * Funktionen anropas i lyssnarklassen CalculatorListener som skickar med objektet &quot;c&quot; som parameter. 
+	 * &quot;c&quot; inneh�ller information g�llande den knapp tryckts p� vilket d�refter matchas mot dess korresponderande knapp
+	 * i knapp-arrayen &quot;advancedCalc&quot; fr�n CalculatorView. 
+	 * 
+	 * N�r en tr�ff uppst�r i for-loopen, dvs. att objektet &quot;c&quot; kan matchas mot en av knapparna, h�mtas texten fr�n knappen f�r att sedan
+	 * utf�ra en given ber�kning. Om anv�ndaren ex. trycker p� &quot;x^2&quot;, anropas metoden powerOfTwo fr�n objektet &quot;ao&quot; d�r talet
+	 * fr�n inmatningsf�ltet skickas som argument. Notera att samtliga tal m�ste konverteras till en &quot;String&quot; innan presentation
+	 * eftersom JInputField inte kan hantera n�gon av de primitiva datatyperna. 
+	 * 
+	 * @param c
+	 */
+	
+	public void advancedCalcClicked(Object c) {
+
+<span class="nc bnc" id="L213" title="All 2 branches missed.">		for (int x = 0; x &lt; cw.advancedCalc.length - 1; x++) { </span>
+
+<span class="nc bnc" id="L215" title="All 2 branches missed.">			if (c.equals(cw.advancedCalc[x])) { //om &quot;c&quot;, dvs. knappen som trycks g�r att matcha mot en av de avancerade utr�kningarna</span>
+
+<span class="nc bnc" id="L217" title="All 2 branches missed.">				if (cw.input.getText().isEmpty()) { //om inmatningsf�ltet �r tomt. </span>
+<span class="nc" id="L218">					JOptionPane.showMessageDialog(null, &quot;Du m�ste ange ett v�rde&quot;);</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">				} else if (cw.advancedCalc[x].getText().equals(&quot;x^2&quot;)) { //om &quot;x^2&quot;-knappen har tryckts, ska denna ber�kning genomf�ras</span>
+
+<span class="nc" id="L221">					cw.input.setText(toString(ao.powerOfTwo(Double.parseDouble(cw.input.getText()))));</span>
+
+<span class="nc bnc" id="L223" title="All 2 branches missed.">				} else if (cw.advancedCalc[x].getText().equals(&quot;x^3&quot;)) {</span>
+
+<span class="nc" id="L225">					cw.input.setText(toString(ao.powerOfThree(Double.parseDouble(cw.input.getText()))));</span>
+
+<span class="nc bnc" id="L227" title="All 2 branches missed.">				} else if (cw.advancedCalc[x].getText().equals(&quot;\u221A&quot;)) { // SQRT</span>
+
+<span class="nc" id="L229">					cw.input.setText(toString(ao.squareRoot(Double.parseDouble(cw.input.getText()))));</span>
+
+<span class="nc bnc" id="L231" title="All 2 branches missed.">				} else if (cw.advancedCalc[x].getText().equals(&quot;\u33D2&quot;)) { // LOG</span>
+
+<span class="nc bnc" id="L233" title="All 4 branches missed.">					if (cw.input.getText().equals(&quot;0&quot;) || cw.input.getText().equals(&quot;0.0&quot;)) { //log tar inte v�rdet 0 och under.</span>
+<span class="nc" id="L234">						JOptionPane.showMessageDialog(null, &quot;Ogiltig data! M�ste vara st�rre �n 0&quot;);</span>
+					} else {
+<span class="nc" id="L236">						cw.input.setText(toString(ao.log(Double.parseDouble(cw.input.getText()))));</span>
+					}
+
+<span class="nc bnc" id="L239" title="All 2 branches missed.">				} else if (cw.advancedCalc[x].getText().equals(&quot;SIN&quot;)) {</span>
+
+<span class="nc" id="L241">					cw.input.setText(toString(ao.sin(Double.parseDouble(cw.input.getText()))));</span>
+
+<span class="nc bnc" id="L243" title="All 2 branches missed.">				} else if (cw.advancedCalc[x].getText().equals(&quot;COS&quot;)) {</span>
+
+<span class="nc" id="L245">					cw.input.setText(toString(ao.cos(Double.parseDouble(cw.input.getText()))));</span>
+
+<span class="nc bnc" id="L247" title="All 2 branches missed.">				} else if (cw.advancedCalc[x].getText().equals(&quot;TAN&quot;)) {</span>
+
+<span class="nc" id="L249">					cw.input.setText(toString(ao.tan(Double.parseDouble(cw.input.getText()))));</span>
+
+				}
+
+<span class="nc" id="L253">				isActive = true;</span>
+<span class="nc" id="L254">				piActive = true;</span>
+
+			}
+
+		}
+		
+		/**
+		 * Eftersom pi inte �r en ber�kning, g�r det bra att trycka p� pi-knappen trots
+		 * att inmatningsf�ltet �r tomt samt att piActive = true. Det sistn�mnda inneb�r
+		 * att pi enbart f�r anv�ndas en g�ng per utr�kning. 
+		 */
+
+<span class="nc bnc" id="L266" title="All 4 branches missed.">		if (c.equals(cw.advancedCalc[7]) &amp;&amp; piActive) {</span>
+<span class="nc" id="L267">			cw.input.setText(toString(ao.pi()));</span>
+<span class="nc" id="L268">			piActive = false;</span>
+		}
+
+<span class="nc" id="L271">	}</span>
+
+	/**
+	 * Denna funktion bygger p� samma princip som funktionen advancedCalcClicked, dvs. att
+	 * den f�rst kontrollerar om en knapp f�r de vanliga utr�kningarna har tryckts p� och 
+	 * d�refter genomf�r ber�kningen. Parametern &quot;Object c&quot; �r s�ledes den knappt som har tryckts p�
+	 * vilket sedan j�mf�rs med knapparna i knapp-arrayen standardCalc som �terfinns i CalculatorView. 
+	 * 
+	 * @param c
+	 */
+	
+	public void standardCalcClicked(Object c) {
+
+<span class="nc bnc" id="L284" title="All 2 branches missed.">		for (int x = 0; x &lt; cw.standardCalc.length; x++) {</span>
+
+<span class="nc bnc" id="L286" title="All 2 branches missed.">			if (c.equals(cw.standardCalc[x])) {</span>
+
+				/**
+				 * isActive anv�nds f�r att kontrollera om anv�ndaren precis genomf�rt en ber�kning. Om s� �r fallet,
+				 * tas samtliga siffror fr�n f�reg�ende resultat bort till f�rm�n f�r de nya som anges. 
+				 */
+				
+<span class="nc bnc" id="L293" title="All 2 branches missed.">				if (isActive) { </span>
+
+<span class="nc bnc" id="L295" title="All 2 branches missed.">					if (cw.input.getText().isEmpty()) { //om inmatningsf�ltet �r tomt. </span>
+<span class="nc" id="L296">						JOptionPane.showMessageDialog(null, &quot;Du m�ste ange ett v�rde&quot;);</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">					} else if (counter &lt; 1) {</span>
+
+<span class="nc" id="L299">						counter++; //anv�nds f�r att kontrollera om anv�ndaren g�r sin f�rsta utr�kning. </span>
+						/*
+						 * Om anv�ndaren g�r sin f�rsta utr�kning s� m�ste det f�rsta talet
+						 * lagras i en tempor�r variabel i v�ntat p� n�sta v�rde. Detta eftersom 
+						 * samtliga av de vanliga r�knes�tten tar tv� tal som argument. 
+						 */
+<span class="nc" id="L305">						prevSum = Double.parseDouble(cw.input.getText()); //det f�rsta v�rdet lagras.</span>
+<span class="nc" id="L306">						showCalc(x); //v�rdet presenteras i f�ltet ovanf�r inmatningsf�ltet. </span>
+
+					} else { //Om det inte �r den f�rsta ber�kningen, dvs. anv�ndaren har gjort en ber�kning tidigare. 
+
+<span class="nc bnc" id="L310" title="All 2 branches missed.">						if (calc.equals(&quot;�&quot;)) {</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">							if (counter &lt; 3) { //Om det �r f�rsta ber�kningen</span>
+<span class="nc" id="L312">								totSum = totSum + Double</span>
+<span class="nc" id="L313">										.parseDouble(toString(bo.multiplication(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L314">								showCalc(x);</span>
+<span class="nc" id="L315">								counter++;</span>
+
+							} else { //om det finns ber�kningar sedan tidigare. 
+<span class="nc" id="L318">								totSum = Double</span>
+<span class="nc" id="L319">										.parseDouble(toString(bo.multiplication(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L320">								showCalc(x);</span>
+
+							}
+<span class="nc bnc" id="L323" title="All 2 branches missed.">						} else if (calc.equals(&quot;/&quot;)) {</span>
+<span class="nc bnc" id="L324" title="All 4 branches missed.">							if (cw.input.getText().equals(&quot;0&quot;) || cw.input.getText().equals(&quot;0.0&quot;)) { //Division med noll</span>
+<span class="nc" id="L325">								JOptionPane.showMessageDialog(null, &quot;SYNTAX ERROR - KAN INTE DIVIDERA MED 0&quot;);</span>
+							} else {
+<span class="nc bnc" id="L327" title="All 2 branches missed.">								if (counter &lt; 3) {</span>
+<span class="nc" id="L328">									totSum = totSum + Double</span>
+<span class="nc" id="L329">											.parseDouble(toString(bo.division(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L330">									showCalc(x);</span>
+<span class="nc" id="L331">									counter++;</span>
+
+								} else {
+
+<span class="nc bnc" id="L335" title="All 6 branches missed.">									if (totSum == 0 || totSum == 0.0 || cw.input.getText().equals(&quot;0&quot;)</span>
+<span class="nc bnc" id="L336" title="All 2 branches missed.">											|| cw.input.getText().equals(&quot;0.0&quot;)) {</span>
+<span class="nc" id="L337">										JOptionPane.showMessageDialog(null, &quot;SYNTAX ERROR - KAN INTE DIVIDERA MED 0&quot;);</span>
+<span class="nc" id="L338">										calculate();</span>
+<span class="nc" id="L339">										cw.input.setText(&quot;&quot;);</span>
+									} else {
+<span class="nc" id="L341">										totSum = Double.parseDouble(toString(</span>
+<span class="nc" id="L342">												bo.division(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L343">										showCalc(x);</span>
+									}
+
+								}
+							}
+<span class="nc bnc" id="L348" title="All 2 branches missed.">						} else if (calc.equals(&quot;+&quot;)) {</span>
+<span class="nc bnc" id="L349" title="All 2 branches missed.">							if (counter &lt; 3) {</span>
+<span class="nc" id="L350">								totSum = totSum + Double</span>
+<span class="nc" id="L351">										.parseDouble(toString(bo.addition(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L352">								showCalc(x);</span>
+<span class="nc" id="L353">								counter++;</span>
+
+							} else {
+<span class="nc" id="L356">								totSum = Double</span>
+<span class="nc" id="L357">										.parseDouble(toString(bo.addition(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L358">								showCalc(x);</span>
+
+							}
+<span class="nc bnc" id="L361" title="All 2 branches missed.">						} else if (calc.equals(&quot;-&quot;)) {</span>
+<span class="nc bnc" id="L362" title="All 2 branches missed.">							if (counter &lt; 3) {</span>
+<span class="nc" id="L363">								totSum = totSum + Double</span>
+<span class="nc" id="L364">										.parseDouble(toString(bo.substraction(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L365">								showCalc(x);</span>
+<span class="nc" id="L366">								counter++;</span>
+
+							} else {
+<span class="nc" id="L369">								totSum = Double</span>
+<span class="nc" id="L370">										.parseDouble(toString(bo.substraction(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L371">								showCalc(x);</span>
+
+							}
+						} else {
+<span class="nc" id="L375">							System.out.println(&quot;H�r ska jag inte hamna&quot;); // Test</span>
+						}
+
+<span class="nc" id="L378">						piActive = true; //Om en ber�kningen genomf�rs, kan pi-knappen anv�ndas igen. </span>
+
+					}
+
+				}
+			}
+
+		}
+<span class="nc" id="L386">	}</span>
+
+	/**
+	 * Denna funktion bygger p� samma princip som funktionerna advancedCalcClicked standardCalcClicked.
+	 * H�r kontrolleras om en siffra har tryckts p� varp� siffran d�refter anges till inmatningsf�ltet. 
+	 * N�r funktionen har kontrollerat att en siffer-knapp har anv�nts, kontrolleras f�rst om anv�ndaren har 
+	 * tryckt p� pi-knappen. Detta g�rs f�r att den angivna siffran inte ska hamna l�ngst bak. Samtliga
+	 * siffror f�r pi tas ist�llet bort varp� den agivna siffran skrivs in. 
+	 * 
+	 * Detsamma g�ller �ven f�r om en utr�kning precis har genomf�rts genom isActive. Om en utr�kning precis 
+	 * har genomf�rts s� tas detta resultat bort varp� den angivna siffras skrivs in. 
+	 * 
+	 * Funktionen inneh�ller �ven hantering f�r om &quot;.&quot;-knappen anv�nds samt &quot;=&quot;-knappen.
+	 * 
+	 * Parametern &quot;Object c&quot; �r s�ledes den knappt som har tryckts p�
+	 * vilket sedan j�mf�rs med knapparna i knapp-arrayen standardCalc som �terfinns i CalculatorView. 
+	 * 
+	 * 
+	 * @param c
+	 */
+	
+	public void digitsClicked(Object c) {
+
+<span class="nc bnc" id="L409" title="All 2 branches missed.">		for (int x = 0; x &lt; cw.digits.length - 2; x++) {</span>
+
+<span class="nc bnc" id="L411" title="All 2 branches missed.">			if (c.equals(cw.digits[x])) {</span>
+
+<span class="nc bnc" id="L413" title="All 2 branches missed.">				if (!piActive) {</span>
+<span class="nc" id="L414">					cw.input.setText(&quot;&quot;);</span>
+<span class="nc" id="L415">					cw.input.setText(cw.input.getText() + cw.digits[x].getText());</span>
+<span class="nc" id="L416">					piActive = true;</span>
+<span class="nc bnc" id="L417" title="All 2 branches missed.">				} else if (isActive) {</span>
+
+<span class="nc" id="L419">					cw.input.setText(cw.input.getText() + cw.digits[x].getText());</span>
+
+				} else {
+<span class="nc" id="L422">					cw.input.setText(&quot;&quot;);</span>
+<span class="nc" id="L423">					cw.input.setText(cw.input.getText() + cw.digits[x].getText());</span>
+<span class="nc" id="L424">					isActive = true;</span>
+				}
+
+			}
+		}
+
+		/**
+		 * Anv�ndaren ska inte kunna ange fler �n ett(1) komma-tecken. 
+		 */
+		
+<span class="nc bnc" id="L434" title="All 2 branches missed.">		if (c.equals(cw.digits[10])) { // Komma-tecken - Notera att det �r punkt</span>
+										// som anv�nds, dvs. &quot;.&quot;
+<span class="nc bnc" id="L436" title="All 4 branches missed.">			if (!cw.input.getText().contains(&quot;.&quot;) &amp;&amp; cw.input.getText().equals(&quot;&quot;)) {</span>
+<span class="nc" id="L437">				cw.input.setText(&quot;0&quot; + cw.digits[10].getText());</span>
+<span class="nc bnc" id="L438" title="All 2 branches missed.">			} else if (!cw.input.getText().contains(&quot;.&quot;)) {</span>
+<span class="nc" id="L439">				cw.input.setText(cw.input.getText() + cw.digits[10].getText());</span>
+			}
+
+		}
+
+		/**
+		 * Vid &quot;=&quot;-knappen m�ste det f�rst kontrolleras om anv�ndaren har genomf�rt f�reg�ende ber�kningar. 
+		 * Om s� inte �r fallet, m�ste den f�rsta summan lagras i &quot;prevSum&quot; och den befintliga skickas med som argument f�r ber�kning. 
+		 * 
+		 * Motsatsen till detta �r om anv�ndaren redan genomf�rt ber�kning vilket inneb�r att variabeln totSum kan skickas med som argument
+		 * f�r ber�kning. 
+		 */
+		
+<span class="nc bnc" id="L452" title="All 2 branches missed.">		if (c.equals(cw.digits[11])) { // Lika-med, dvs. &quot;=&quot;</span>
+
+<span class="nc bnc" id="L454" title="All 2 branches missed.">			if (counter == 2) { </span>
+
+<span class="nc bnc" id="L456" title="All 2 branches missed.">				if (cw.input.getText().isEmpty()) {</span>
+<span class="nc" id="L457">					JOptionPane.showMessageDialog(null, &quot;Du m�ste ange ett v�rde&quot;);</span>
+				} else {
+
+<span class="nc bnc" id="L460" title="All 2 branches missed.">					if (calc.equals(&quot;�&quot;)) {</span>
+<span class="nc" id="L461">						cw.input.setText(toString(bo.multiplication(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L462">						calculate();</span>
+<span class="nc bnc" id="L463" title="All 2 branches missed.">					} else if (calc.equals(&quot;/&quot;)) {</span>
+
+<span class="nc bnc" id="L465" title="All 4 branches missed.">						if (cw.input.getText().equals(&quot;0&quot;) || cw.input.getText().equals(&quot;0.0&quot;)) {</span>
+<span class="nc" id="L466">							JOptionPane.showMessageDialog(null, &quot;SYNTAX ERROR - KAN INTE DIVIDERA MED 0&quot;);</span>
+						} else {
+<span class="nc" id="L468">							cw.input.setText(toString(bo.division(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L469">							calculate();</span>
+						}
+
+<span class="nc bnc" id="L472" title="All 2 branches missed.">					} else if (calc.equals(&quot;+&quot;)) {</span>
+<span class="nc" id="L473">						cw.input.setText(toString(bo.addition(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L474">						calculate();</span>
+<span class="nc bnc" id="L475" title="All 2 branches missed.">					} else if (calc.equals(&quot;-&quot;)) {</span>
+<span class="nc" id="L476">						cw.input.setText(toString(bo.substraction(prevSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L477">						calculate();</span>
+					}
+
+				}
+
+			} else { //dvs. om anv�ndaren redan genomf�rt en ber�kning. 
+<span class="nc bnc" id="L483" title="All 2 branches missed.">				if (cw.input.getText().isEmpty()) {</span>
+<span class="nc" id="L484">					JOptionPane.showMessageDialog(null, &quot;Du m�ste ange ett v�rde&quot;);</span>
+				} else {
+<span class="nc bnc" id="L486" title="All 2 branches missed.">					if (calc.equals(&quot;�&quot;)) {</span>
+<span class="nc" id="L487">						cw.input.setText(toString(bo.multiplication(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L488">						calculate();</span>
+<span class="nc bnc" id="L489" title="All 2 branches missed.">					} else if (calc.equals(&quot;/&quot;)) {</span>
+
+<span class="nc bnc" id="L491" title="All 4 branches missed.">						if (cw.input.getText().equals(&quot;0&quot;) || cw.input.getText().equals(&quot;0.0&quot;)) {</span>
+<span class="nc" id="L492">							JOptionPane.showMessageDialog(null, &quot;SYNTAX ERROR - KAN INTE DIVIDERA MED 0&quot;);</span>
+						} else {
+<span class="nc" id="L494">							cw.input.setText(toString(bo.division(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L495">							calculate();</span>
+						}
+
+<span class="nc bnc" id="L498" title="All 2 branches missed.">					} else if (calc.equals(&quot;+&quot;)) {</span>
+<span class="nc" id="L499">						cw.input.setText(toString(bo.addition(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L500">						calculate();</span>
+<span class="nc bnc" id="L501" title="All 2 branches missed.">					} else if (calc.equals(&quot;-&quot;)) {</span>
+<span class="nc" id="L502">						cw.input.setText(toString(bo.substraction(totSum, Double.parseDouble(cw.input.getText()))));</span>
+<span class="nc" id="L503">						calculate();</span>
+					}
+				}
+
+			}
+
+<span class="nc" id="L509">			isActive = true;</span>
+		}
+
+<span class="nc" id="L512">	}</span>
+
+	
+	/**
+	 * Funktion f�r att presentera resultatet av en ber�kning i inmatningsf�ltet &quot;results&quot; som �terfinns i
+	 * klassen CalculatorView. F�rst m�ste det kontrolleras om anv�ndaren har genomf�rt minst en ber�kning tidigare. 
+	 * Om detta inte st�mmer s� m�ste variabeln &quot;counter&quot; inkrementeras med 1 f�r att signalera att det nu finns
+	 * en totalsumma att arbeta med, dvs. variabeln totSum. 
+	 * 
+	 * Parametern x �r index p� den ber�kningsknapp som anv�nts (+,-,/,*), dvs. knapp-arrayen i CalculatorView. 
+	 * 
+	 * @param x
+	 */
+	
+	private void showCalc(int x) {
+
+<span class="nc" id="L528">		calc = cw.standardCalc[x].getText();</span>
+
+<span class="nc bnc" id="L530" title="All 2 branches missed.">		if (counter &lt; 2) {</span>
+<span class="nc" id="L531">			cw.results.setText(cw.input.getText() + cw.standardCalc[x].getText());</span>
+<span class="nc" id="L532">			cw.input.setText(&quot;&quot;);</span>
+<span class="nc" id="L533">			counter++;</span>
+		} else {
+
+<span class="nc" id="L536">			cw.results.setText(Double.toString(totSum) + &quot; &quot; + cw.standardCalc[x].getText());</span>
+<span class="nc" id="L537">			cw.input.setText(Double.toString(totSum));</span>
+<span class="nc" id="L538">			isActive = false;</span>
+
+		}
+
+<span class="nc" id="L542">	}</span>
+
+	
+	
+	/**
+	 * Funktion f�r att resan all data. Anv�nds i samband med att &quot;=&quot;-knappen anv�nds och anv�ndaren vill ha
+	 * det totala resultatet
+	 */
+	private void calculate() {
+<span class="nc" id="L551">		prevSum = 0;</span>
+<span class="nc" id="L552">		counter = 0;</span>
+<span class="nc" id="L553">		cw.results.setText(&quot; &quot;);</span>
+<span class="nc" id="L554">		totSum = 0;</span>
+<span class="nc" id="L555">		isActive = false;</span>
+<span class="nc" id="L556">	}</span>
+	
+	/**
+	 * Anv�nds f�r att konvertera double-variabel till String. Detta m�ste g�ras vid presentation
+	 * av data till inmatningsf�ltet eftersom JInputField enbart kan hantera String. 
+	 * 
+	 * @param sum
+	 * @return Stringv�rde av parametern sum
+	 */
+	
+	private String toString(double sum){
+		
+<span class="nc" id="L568">		return Double.toString(sum);</span>
+		
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
